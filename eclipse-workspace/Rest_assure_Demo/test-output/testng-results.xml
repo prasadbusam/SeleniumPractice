@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-18T12:02:16 IST" name="Default suite" finished-at="2025-03-18T12:02:18 IST" duration-ms="1978">
+    <groups>
+    </groups>
+    <test started-at="2025-03-18T12:02:16 IST" name="Default test" finished-at="2025-03-18T12:02:18 IST" duration-ms="1978">
+      <class name="com.Rest_assure_Demo.Day1.HttpMethods">
+        <test-method signature="getSingleUser1()[pri:1, instance:com.Rest_assure_Demo.Day1.HttpMethods@53fb3dab]" started-at="2025-03-18T12:02:16 IST" name="getSingleUser1" finished-at="2025-03-18T12:02:18 IST" duration-ms="1847" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getSingleUser1 -->
+        <test-method signature="getSingleUser()[pri:2, instance:com.Rest_assure_Demo.Day1.HttpMethods@53fb3dab]" started-at="2025-03-18T12:02:18 IST" name="getSingleUser" finished-at="2025-03-18T12:02:18 IST" duration-ms="57" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getSingleUser -->
+      </class> <!-- com.Rest_assure_Demo.Day1.HttpMethods -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
