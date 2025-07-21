@@ -1,12 +1,14 @@
-package Navigational_Methods;
+package window_handles;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Navigational_demo {
+public class window_1 {
 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver=new ChromeDriver();
@@ -18,18 +20,31 @@ public class Navigational_demo {
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("[name=\'password\']")).sendKeys("admin123");
 		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("[type=\'submit\']")).click();
+		driver.findElement(By.xpath("//*[text()='OrangeHRM, Inc']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[text()='Performance']")).click();
+		Set<String> windows=driver.getWindowHandles();
+		/*ArrayList <String> allid=new ArrayList(windows);
+		String first=allid.get(0);
+		String second=allid.get(1);
 		Thread.sleep(2000);
-		driver.navigate().refresh();
+		driver.switchTo().window(second);
 		Thread.sleep(2000);
-		driver.navigate().back();
+		System.out.println(driver.getTitle());
+		driver.switchTo().window(first);
 		Thread.sleep(2000);
-		driver.navigate().forward();
-		driver.quit();
+		System.out.println(driver.getTitle());*/
 		
-
+		/*for(String all:windows) {
+			driver.switchTo().window(all);
+			System.out.println(driver.getTitle());
+		}*/
+		
+		for(String all:windows) {
+			String ids=driver.switchTo().window(all).getTitle();
+			if(ids.equals("OrangeHRM")) {
+				System.out.println(driver.getCurrentUrl());
+			}
+		}
 
 	}
 
