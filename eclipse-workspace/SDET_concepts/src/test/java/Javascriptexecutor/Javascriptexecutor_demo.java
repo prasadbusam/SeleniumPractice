@@ -27,13 +27,29 @@ public class Javascriptexecutor_demo {
         js.executeScript("arguments[0].value='Prasad';", name);
 
         // Scroll to file upload and interact
-        WebElement upload = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id='singleFileInput']")));
-        js.executeScript("arguments[0].scrollIntoView();", upload);
+        //WebElement upload = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id='singleFileInput']")));
+        //WebElement upload=driver.findElement(By.xpath("//*[@id='singleFileInput']"));
+        //js.executeScript("arguments[0].scrollIntoView(true);", upload);
+        //upload.click();
+        WebElement upload = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("singleFileInput")));
+        js.executeScript("arguments[0].scrollIntoView(true);", upload);
+        upload.sendKeys("C:\\Resume\\Prasad Busam.pdf");
 
-        // Optional click (for visual confirmation)
-        js.executeScript("arguments[0].click();", upload);
+        // Get the value attribute (browser will often return C:\fakepath\filename)
+        String uploadedFilePath = upload.getAttribute("value");
+        System.out.println("Browser stored file path: " + uploadedFilePath);
 
-        // Optional file upload
-        // upload.sendKeys("C:\\path\\to\\file.txt");
+        // Extract only the file name
+        String uploadedFileName = uploadedFilePath.substring(uploadedFilePath.lastIndexOf("\\") + 1);
+
+        // Compare with expected file name
+        if (uploadedFileName.equals("Prasad Busam.pdf")) {
+            System.out.println("File upload successfully");
+        } else {
+            System.out.println("File upload not successfully");
+        }
+
+
+        
     }
 }
